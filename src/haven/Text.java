@@ -40,6 +40,7 @@ public class Text {
     public static final Font fraktur = Resource.local().loadwait("ui/fraktur").layer(Resource.Font.class).font;
     public static final Font dfont = sans;
     public static final Foundry std;
+    public static final Foundry mini;
     public final BufferedImage img;
     public final String text;
     private Tex tex;
@@ -48,6 +49,7 @@ public class Text {
 	
     static {
 	std = new Foundry(sans, fontsize);
+	mini = new Foundry(sans, (int)Math.round(fontsize*0.9));
     }
 	
     public static class Line extends Text {

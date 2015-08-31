@@ -236,7 +236,7 @@ public class OptWnd extends Window {
 	    }, new Coord(0, y));
 	y += 35;
 
-	general.add(new Label("* Please restart to see changes"), new Coord(0, y));
+	general.add(new Label("* Restart to apply changes", Text.mini), new Coord(0, y));
 	y += Text.fontsize+5;
 
 	general.add(new PButton(200, "Back", 27, main), new Coord(0, 180));
