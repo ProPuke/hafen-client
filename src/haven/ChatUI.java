@@ -41,8 +41,11 @@ import java.io.IOException;
 import java.awt.datatransfer.*;
 
 public class ChatUI extends Widget {
-    public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(10f), TextAttribute.FOREGROUND, Color.BLACK));
-    public static final Text.Foundry qfnd = new Text.Foundry(Text.dfont, 12, new java.awt.Color(192, 255, 192));
+	static final int fontsize_body = Text.fontsize;
+	static final int fontsize_title = (int) Math.round(Text.fontsize*1.2);
+
+    public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(fontsize_body), TextAttribute.FOREGROUND, Color.BLACK));;
+    public static final Text.Foundry qfnd = new Text.Foundry(Text.dfont, fontsize_title, new java.awt.Color(192, 255, 192));;
     public static final int selw = 130;
     public static final Coord marg = new Coord(9, 9);
     public Channel sel = null;
@@ -54,6 +57,7 @@ public class ChatUI extends Widget {
 
     public ChatUI(int w, int h) {
 	super(new Coord(w, h));
+
 	chansel = add(new Selector(new Coord(selw, sz.y - marg.y)), marg);
 	setfocusctl(true);
 	setcanfocus(true);
@@ -879,7 +883,7 @@ public class ChatUI extends Widget {
     private static final Tex chanseld = Resource.loadtex("gfx/hud/chat-csel");
     private class Selector extends Widget {
 	public final BufferedImage ctex = Resource.loadimg("gfx/hud/chantex");
-	public final Text.Foundry tf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, 12)).aa(true);
+	public final Text.Foundry tf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, fontsize_title)).aa(true);
 	public final Text.Furnace nf = new PUtils.BlurFurn(new PUtils.TexFurn(tf, ctex), 1, 1, new Color(80, 40, 0));
 	private final List<DarkChannel> chls = new ArrayList<DarkChannel>();
 	private int s = 0;

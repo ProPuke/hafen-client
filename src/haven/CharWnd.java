@@ -36,7 +36,7 @@ import static haven.PUtils.*;
 import haven.resutil.FoodInfo;
 
 public class CharWnd extends Window {
-    public static final RichText.Foundry ifnd = new RichText.Foundry(Resource.remote(), java.awt.font.TextAttribute.FAMILY, "SansSerif", java.awt.font.TextAttribute.SIZE, 9).aa(true);
+    public static final RichText.Foundry ifnd = new RichText.Foundry(Resource.remote(), java.awt.font.TextAttribute.FAMILY, "SansSerif", java.awt.font.TextAttribute.SIZE, (int)Math.round(Text.fontsize*0.9)).aa(true);
     public static final Text.Furnace catf = new BlurFurn(new TexFurn(new Text.Foundry(Text.fraktur, 25).aa(true), Window.ctex), 3, 2, new Color(96, 48, 0));
     public static final Text.Foundry attrf = new Text.Foundry(Text.fraktur, 18).aa(true);
     public static final Color debuff = new Color(255, 128, 128);
@@ -680,7 +680,7 @@ public class CharWnd extends Window {
 	    StringBuilder buf = new StringBuilder();
 	    Resource res = this.res.get();
 	    buf.append("$img[" + res.name + "]\n\n");
-	    buf.append("$b{$font[serif,16]{" + res.layer(Resource.tooltip).t + "}}\n\n\n");
+	    buf.append("$b{$font[serif,"+((int)Math.round(Text.fontsize*1.6))+"]{" + res.layer(Resource.tooltip).t + "}}\n\n");
 	    buf.append("Cost: " + cost + "\n\n");
 	    buf.append(res.layer(Resource.pagina).text);
 	    return(buf.toString());
@@ -712,7 +712,7 @@ public class CharWnd extends Window {
 	    StringBuilder buf = new StringBuilder();
 	    Resource res = this.res.get();
 	    buf.append("$img[" + res.name + "]\n\n");
-	    buf.append("$b{$font[serif,16]{" + res.layer(Resource.tooltip).t + "}}\n\n\n");
+	    buf.append("$b{$font[serif,"+((int)Math.round(Text.fontsize*1.6))+"]{" + res.layer(Resource.tooltip).t + "}}\n\n");
 	    if(score > 0)
 		buf.append("Experience points: " + Utils.thformat(score) + "\n\n");
 	    buf.append(res.layer(Resource.pagina).text);
@@ -767,7 +767,7 @@ public class CharWnd extends Window {
 		StringBuilder buf = new StringBuilder();
 		Resource res = this.res.get();
 		buf.append("$img[" + res.name + "]\n\n");
-		buf.append("$b{$font[serif,16]{" + res.layer(Resource.tooltip).t + "}}\n\n\n");
+		buf.append("$b{$font[serif,"+((int)Math.round(Text.fontsize*1.6))+"]{" + res.layer(Resource.tooltip).t + "}}\n\n");
 		buf.append(res.layer(Resource.pagina).text);
 		return(buf.toString());
 	    }

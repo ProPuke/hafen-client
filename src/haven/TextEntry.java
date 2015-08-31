@@ -31,14 +31,15 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 
 public class TextEntry extends SIWidget {
+    public static final int fontsize = (int)Math.round(Text.fontsize*1.2);
     public static final Color defcol = new Color(255, 205, 109), dirtycol = new Color(255, 232, 209);
-    public static final Text.Foundry fnd = new Text.Foundry(Text.serif, 12).aa(true);
+    public static final Text.Foundry fnd = new Text.Foundry(Text.serif, fontsize).aa(true);
     public static final BufferedImage lcap = Resource.loadimg("gfx/hud/text/l");
     public static final BufferedImage rcap = Resource.loadimg("gfx/hud/text/r");
     public static final BufferedImage mext = Resource.loadimg("gfx/hud/text/m");
     public static final BufferedImage caret = Resource.loadimg("gfx/hud/text/caret");
-    public static final Coord toff = new Coord(lcap.getWidth() - 1, 3);
-    public static final Coord coff = new Coord(-3, -1);
+    public static final Coord toff = new Coord(lcap.getWidth() - 1, Math.max(15-fontsize,-2));
+    public static final Coord coff = new Coord(lcap.getWidth() - 4, 2);
     public boolean dshow = false;
     public LineEdit buf;
     public int sx;
@@ -132,7 +133,7 @@ public class TextEntry extends SIWidget {
 	if(hasfocus && (((System.currentTimeMillis() - focusstart) % 1000) < 500)) {
 	    int cx = tcache.advance(buf.point);
 	    int lx = cx - sx + 1;
-	    g.image(caret, toff.add(coff).add(lx, 0));
+	    g.image(caret, coff.add(lx, 0));
 	}
     }
 

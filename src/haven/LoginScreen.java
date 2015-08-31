@@ -39,15 +39,15 @@ public class LoginScreen extends Widget {
     Text progress = null;
 
     static {
-	textf = new Text.Foundry(Text.sans, 16).aa(true);
-	textfs = new Text.Foundry(Text.sans, 14).aa(true);
+	textf = new Text.Foundry(Text.sans, (int)Math.round(Text.fontsize*1.6)).aa(true);
+	textfs = new Text.Foundry(Text.sans, (int)Math.round(Text.fontsize*1.4)).aa(true);
     }
 
     public LoginScreen() {
 	super(bg.sz());
 	setfocustab(true);
 	add(new Img(bg), Coord.z);
-	optbtn = adda(new Button(100, "Options"), 10, sz.y - 10, 0, 1);
+	optbtn = adda(new Button(100, "Options"), Text.fontsize, sz.y - 10, 0, 1);
     }
 
     private static abstract class Login extends Widget {
@@ -110,9 +110,10 @@ public class LoginScreen extends Widget {
 		
 	private Tokenbox(String username) {
 	    label = textfs.render("Identity is saved for " + username, java.awt.Color.WHITE);
-	    add(btn = new Button(100, "Forget me"), new Coord(75, 30));
-	    resize(new Coord(250, 100));
-	    LoginScreen.this.add(this, new Coord(295, 330));
+	    int width = Math.max(250, label.sz().x);
+	    add(btn = new Button(100, "Forget me"), new Coord((width-100)/2, 30));
+	    resize(new Coord(width, 100));
+	    LoginScreen.this.add(this, new Coord((840-width)/2, 330));
 	}
 		
 	Object[] data() {

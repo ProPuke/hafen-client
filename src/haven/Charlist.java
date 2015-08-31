@@ -35,7 +35,7 @@ public class Charlist extends Widget {
     public List<Char> chars = new ArrayList<Char>();
     
     public static class Char {
-	static Text.Foundry tf = new Text.Foundry(Text.serif, 20);
+	static Text.Foundry tf = new Text.Foundry(Text.serif, Text.fontsize*2).aa(true);
 	public String name;
 	Text nt;
 	// Avaview ava;

@@ -93,8 +93,8 @@ public class Polity extends Widget {
 	}
     }
 
-    public static final Text.Foundry nmf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, 14)).aa(true);
-    public static final Text.Foundry membf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, 12)).aa(true);
+    public static final Text.Foundry nmf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, (int)Math.round(Text.fontsize*1.4))).aa(true);
+    public static final Text.Foundry membf = new Text.Foundry(Text.serif.deriveFont(Font.BOLD, (int)Math.round(Text.fontsize*1.2))).aa(true);
 
     public Polity(String cap, String name) {
 	super(new Coord(200, 200));

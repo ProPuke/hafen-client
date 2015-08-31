@@ -30,7 +30,7 @@ import java.util.*;
 import java.awt.font.TextAttribute;
 
 public class OptWnd extends Window {
-    public final Panel main, video, audio;
+    public final Panel main, general, video, audio;
     public Panel current;
 
     public void chpanel(Panel p) {
@@ -102,6 +102,7 @@ public class OptWnd extends Window {
 			}
 		    }, new Coord(0, y));
 		y += 25;
+
 		add(new CheckBox("Render shadows") {
 			{a = cf.lshadow.val;}
 
@@ -121,6 +122,7 @@ public class OptWnd extends Window {
 			}
 		    }, new Coord(0, y));
 		y += 25;
+
 		add(new CheckBox("Antialiasing") {
 			{a = cf.fsaa.val;}
 
@@ -136,6 +138,7 @@ public class OptWnd extends Window {
 			}
 		    }, new Coord(0, y));
 		y += 25;
+
 		add(new Label("Anisotropic filtering"), new Coord(0, y));
 		if(cf.anisotex.max() <= 1) {
 		    add(new Label("(Not supported)"), new Coord(15, y + 15));
@@ -165,6 +168,7 @@ public class OptWnd extends Window {
 			}, new Coord(0, y + 15));
 		}
 		y += 35;
+
 		add(new Button(200, "Reset to defaults") {
 			public void click() {
 			    cf.cfg.resetprefs();
@@ -190,12 +194,14 @@ public class OptWnd extends Window {
     public OptWnd(boolean gopts) {
 	super(Coord.z, "Options", true);
 	main = add(new Panel());
+	general = add(new Panel());
 	video = add(new VideoPanel(main));
 	audio = add(new Panel());
 	int y;
 
-	main.add(new PButton(200, "Video settings", 'v', video), new Coord(0, 0));
-	main.add(new PButton(200, "Audio settings", 'a', audio), new Coord(0, 30));
+	main.add(new PButton(200, "Interface settings", 'i', general), new Coord(0, 0));
+	main.add(new PButton(200, "Video settings", 'v', video), new Coord(0, 30));
+	main.add(new PButton(200, "Audio settings", 'a', audio), new Coord(0, 60));
 	if(gopts) {
 	    main.add(new Button(200, "Switch character") {
 		    public void click() {
@@ -216,16 +222,40 @@ public class OptWnd extends Window {
 	main.pack();
 
 	y = 0;
+	general.add(new Label("Font size *"), new Coord(0, y));
+	y += Text.fontsize+5;
+
+	general.add(new HSlider(200, 10, 17, 0) {
+		protected void attach(UI ui) {
+		    super.attach(ui);
+		    val = Utils.getprefi("fontsize", Text.fontsize);
+		}
+		public void changed() {
+			Utils.setprefi("fontsize", val);
+		}
+	    }, new Coord(0, y));
+	y += 35;
+
+	general.add(new Label("* Please restart to see changes"), new Coord(0, y));
+	y += Text.fontsize+5;
+
+	general.add(new PButton(200, "Back", 27, main), new Coord(0, 180));
+	general.pack();
+
+	y = 0;
 	audio.add(new Label("Master audio volume"), new Coord(0, y));
-	y += 15;
+	y += Text.fontsize+5;
+
 	audio.add(new HSlider(200, 0, 1000, (int)(Audio.volume * 1000)) {
 		public void changed() {
 		    Audio.setvolume(val / 1000.0);
 		}
 	    }, new Coord(0, y));
 	y += 30;
+	
 	audio.add(new Label("In-game event volume"), new Coord(0, y));
-	y += 15;
+	y += Text.fontsize+5;
+
 	audio.add(new HSlider(200, 0, 1000, 0) {
 		protected void attach(UI ui) {
 		    super.attach(ui);
@@ -236,8 +266,10 @@ public class OptWnd extends Window {
 		}
 	    }, new Coord(0, y));
 	y += 20;
+
 	audio.add(new Label("Ambient volume"), new Coord(0, y));
-	y += 15;
+	y += Text.fontsize+5;
+
 	audio.add(new HSlider(200, 0, 1000, 0) {
 		protected void attach(UI ui) {
 		    super.attach(ui);
@@ -248,6 +280,7 @@ public class OptWnd extends Window {
 		}
 	    }, new Coord(0, y));
 	y += 35;
+
 	audio.add(new PButton(200, "Back", 27, main), new Coord(0, 180));
 	audio.pack();
 

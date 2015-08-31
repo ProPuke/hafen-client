@@ -33,7 +33,7 @@ import java.awt.image.WritableRaster;
 import static haven.Inventory.invsq;
 
 public class GameUI extends ConsoleHost implements Console.Directory {
-    public static final Text.Foundry errfoundry = new Text.Foundry(Text.dfont, 14, new Color(192, 0, 0));
+    public static final Text.Foundry errfoundry = new Text.Foundry(Text.dfont, (int)Math.round(Text.fontsize*1.4), new Color(192, 0, 0));
     private static final int blpw = 142, brpw = 142;
     public final String chrid;
     public final long plid;

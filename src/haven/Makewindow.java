@@ -38,7 +38,7 @@ public class Makewindow extends Widget {
     static final Text qmodl = Text.render("Quality:");
     static Coord boff = new Coord(7, 9);
     final int xoff = 45, qmy = 38, outy = 65;
-    public static final Text.Foundry nmf = new Text.Foundry(Text.serif, 20).aa(true);
+    public static final Text.Foundry nmf = new Text.Foundry(Text.serif, Text.fontsize*2).aa(true);
 
     @RName("make")
     public static class $_ implements Factory {
