@@ -357,7 +357,7 @@ public class MapView extends PView implements DTarget, Console.Directory {
 	}
 
 	public void release() {
-	    if(tfield > 100)
+	    if(tfield > 100 && Utils.getprefb("camsnap",true))
 		tangl = (float)(Math.PI * 0.25 * Math.round(tangl / (Math.PI * 0.25)));
 	}
 

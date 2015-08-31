@@ -222,9 +222,19 @@ public class OptWnd extends Window {
 	main.pack();
 
 	y = 0;
+
+	general.add(new CheckBox("Snap camera angles") {
+		{a = Utils.getprefb("camsnap",true);}
+
+		public void set(boolean val) {
+		    a = val;
+		    Utils.setprefb("camsnap",val);
+		}
+	    }, new Coord(0, y));
+	y += 25;
+
 	general.add(new Label("Font size *"), new Coord(0, y));
 	y += Text.fontsize+5;
-
 	general.add(new HSlider(200, 10, 17, 0) {
 		protected void attach(UI ui) {
 		    super.attach(ui);
@@ -234,8 +244,9 @@ public class OptWnd extends Window {
 			Utils.setprefi("fontsize", val);
 		}
 	    }, new Coord(0, y));
-	y += 35;
+	y += 30;
 
+	y += 10;
 	general.add(new Label("* Restart to apply changes", Text.mini), new Coord(0, y));
 	y += Text.fontsize+5;
 
