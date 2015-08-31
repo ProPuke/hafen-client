@@ -47,7 +47,7 @@ public class Partyview extends Widget {
     }
 	
     Partyview(long ign) {
-	super(new Coord(84, 140));
+	super(new Coord(120, 140));
 	this.ign = ign;
     }
 
@@ -107,7 +107,7 @@ public class Partyview extends Widget {
 	    e.getValue().color = e.getKey().col;
 	}
 	if((avs.size() > 0) && (leave == null)) {
-	    leave = add(new Button(84, "Leave party"), Coord.z);
+	    leave = add(new Button(120, "Leave party"), Coord.z);
 	}
 	if((avs.size() == 0) && (leave != null)) {
 	    ui.destroy(leave);
