@@ -44,8 +44,8 @@ public class ChatUI extends Widget {
 	static final int fontsize_body = Text.fontsize;
 	static final int fontsize_title = (int) Math.round(Text.fontsize*1.2);
 
-    public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(fontsize_body), TextAttribute.FOREGROUND, Color.BLACK));;
-    public static final Text.Foundry qfnd = new Text.Foundry(Text.dfont, fontsize_title, new java.awt.Color(192, 255, 192));;
+    public static final RichText.Foundry fnd = new RichText.Foundry(new ChatParser(TextAttribute.FONT, Text.dfont.deriveFont(fontsize_body), TextAttribute.FOREGROUND, Color.BLACK)).aa(true);
+    public static final Text.Foundry qfnd = new Text.Foundry(Text.dfont, fontsize_title, new java.awt.Color(192, 255, 192)).aa(true);
     public static final int selw = 130;
     public static final Coord marg = new Coord(9, 9);
     public Channel sel = null;
