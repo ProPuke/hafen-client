@@ -46,7 +46,7 @@ public class RichText extends Text {
 	a.put(TextAttribute.FAMILY, "SansSerif");
 	a.put(TextAttribute.SIZE, Text.fontsize);
 	std = new Parser(a);
-	stdf = new Foundry(std);
+	stdf = new Foundry(std).aa(fontsize>10);
     }
     
     private RichText(String text, BufferedImage img, Part parts) {

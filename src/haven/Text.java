@@ -48,8 +48,8 @@ public class Text {
     public static final Color white = Color.WHITE;
 	
     static {
-	std = new Foundry(sans, fontsize);
-	mini = new Foundry(sans, (int)Math.round(fontsize*0.9));
+	std = new Foundry(sans, fontsize).aa(fontsize>10);
+	mini = new Foundry(sans, (int)Math.round(fontsize*0.9)).aa(fontsize>12);
     }
 	
     public static class Line extends Text {
