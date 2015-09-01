@@ -233,6 +233,16 @@ public class OptWnd extends Window {
 	    }, new Coord(0, y));
 	y += 25;
 
+	general.add(new CheckBox("Fade names out") {
+		{a = Utils.getprefb("fadenames",true);}
+
+		public void set(boolean val) {
+		    a = val;
+		    Utils.setprefb("fadenames",val);
+		}
+	    }, new Coord(0, y));
+	y += 25;
+
 	general.add(new Label("Font size *"), new Coord(0, y));
 	y += Text.fontsize+5;
 	general.add(new HSlider(200, 10, 17, 0) {
