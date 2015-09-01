@@ -236,6 +236,7 @@ public class HavenPanel extends GLCanvas implements Runnable, Console.Directory 
 		public void mouseMoved(MouseEvent e) {
 		    synchronized(events) {
 			mousemv = e;
+		    	events.notifyAll();
 		    }
 		}
 	    });
