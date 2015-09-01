@@ -766,6 +766,11 @@ public class GameUI extends ConsoleHost implements Console.Directory {
 	} else if(key == ' ') {
 	    toggleui();
 	    return(true);
+	} else if(key == '\n') {
+	    if(chat.visible) {
+		setfocus(chat);
+		return(true);
+	    }
 	} else if(key == 3) {
 	    if(chat.visible && !chat.hasfocus) {
 		setfocus(chat);
