@@ -61,18 +61,26 @@ public class LoginScreen extends Widget {
 
 	private Pwbox(String username, boolean save) {
 	    setfocustab(true);
-	    add(new Label("User name", textf), Coord.z);
-	    add(user = new TextEntry(150, username), new Coord(0, 20));
-	    add(new Label("Password", textf), new Coord(0, 50));
-	    add(pass = new TextEntry(150, ""), new Coord(0, 70));
+
+	    int textheight = textf.height();
+	    int y = 0;
+	    add(new Label("User name", textf), new Coord(0, y));
+	    y += textheight+1;
+	    add(user = new TextEntry(150, username), new Coord(0, y));
+	    y += 30;
+	    add(new Label("Password", textf), new Coord(0, y));
+	    y += textheight+1;
+	    add(pass = new TextEntry(150, ""), new Coord(0, y));
+	    y += 30;
 	    pass.pw = true;
-	    add(savepass = new CheckBox("Remember me", true), new Coord(0, 100));
+	    add(savepass = new CheckBox("Remember me", true), new Coord(0, y));
+	    y += 50;
 	    savepass.a = save;
 	    if(user.text.equals(""))
 		setfocus(user);
 	    else
 		setfocus(pass);
-	    resize(new Coord(150, 150));
+	    resize(new Coord(150, y));
 	    LoginScreen.this.add(this, new Coord(345, 310));
 	}
 
