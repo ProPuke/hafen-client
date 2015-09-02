@@ -217,7 +217,7 @@ public class BuddyWnd extends Widget implements Iterable<BuddyWnd.Buddy> {
 		}
 	    } else {
 		if(editing == null) {
-		    BuddyWnd.this.add(nicksel = new TextEntry(190, "") {
+		    BuddyWnd.this.add(nicksel = new TextEntry(195, "") {
 			    {dshow = true;}
 			    public void activate(String text) {
 				editing.chname(text);
@@ -295,7 +295,7 @@ public class BuddyWnd extends Widget implements Iterable<BuddyWnd.Buddy> {
 
 	bl = add(new BuddyList(205 - Window.wbox.bisz().x, 7), new Coord(Window.wbox.btloff().x, y));
 	Frame.around(this, Collections.singletonList(bl));
-	y += 165;
+	y += 200;
 
 	add(new Label("Sort by:"), new Coord(0, y));
 	y += Text.fontsize+5;
@@ -310,7 +310,7 @@ public class BuddyWnd extends Widget implements Iterable<BuddyWnd.Buddy> {
 	    if(sort.equals("group"))  bcmp = groupcmp;
 	    if(sort.equals("status")) bcmp = statuscmp;
 	}
-	y += 45;
+	y += 35;
 
 	add(new Label("Presentation name:"), new Coord(0, y));
 	y += Text.fontsize+5;
@@ -326,7 +326,7 @@ public class BuddyWnd extends Widget implements Iterable<BuddyWnd.Buddy> {
 		    setpname(pname.text);
 		}
 	    }, new Coord(0, y));
-	y += 45;
+	y += 35;
 
 	add(new Label("My hearth secret:"), new Coord(0, y));
 	y += Text.fontsize+5;
@@ -340,7 +340,7 @@ public class BuddyWnd extends Widget implements Iterable<BuddyWnd.Buddy> {
 	add(new Button(50, "Set")    { public void click() {setpwd(charpass.text);} }, new Coord(  0, y));
 	add(new Button(65, "Clear")  { public void click() {setpwd("");} },            new Coord( 55, y));
 	add(new Button(80, "Random") { public void click() {setpwd(randpwd());} },     new Coord(125, y));
-	y += 45;
+	y += 35;
 
 	add(new Label("Make kin by hearth secret:"), new Coord(0, y));
 	y += Text.fontsize+5;
