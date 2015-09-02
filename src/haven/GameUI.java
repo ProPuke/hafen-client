@@ -916,9 +916,9 @@ public class GameUI extends ConsoleHost implements Console.Directory {
 	public boolean mousedown(Coord c, int button) {
 	    int slot = beltslot(c);
 	    if(slot != -1) {
-		if(button == 1)
-		    GameUI.this.wdgmsg("belt", slot, 1, ui.modflags());
 		if(button == 3)
+		    GameUI.this.wdgmsg("belt", slot, 1, ui.modflags());
+		if(button == 1)
 		    GameUI.this.wdgmsg("setbelt", slot, 1);
 		return(true);
 	    }
@@ -1024,9 +1024,9 @@ public class GameUI extends ConsoleHost implements Console.Directory {
 	public boolean mousedown(Coord c, int button) {
 	    int slot = beltslot(c);
 	    if(slot != -1) {
-		if(button == 1)
-		    GameUI.this.wdgmsg("belt", slot, 1, ui.modflags());
 		if(button == 3)
+		    GameUI.this.wdgmsg("belt", slot, 1, ui.modflags());
+		if(button == 1)
 		    GameUI.this.wdgmsg("setbelt", slot, 1);
 		return(true);
 	    }
