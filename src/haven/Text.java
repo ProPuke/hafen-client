@@ -37,7 +37,7 @@ public class Text {
     public static final Font serif = new Font("Serif", Font.PLAIN, fontsize);
     public static final Font sans  = new Font("Sans", Font.PLAIN, fontsize);
     public static final Font mono  = new Font("Monospaced", Font.PLAIN, fontsize);
-    public static final Font fraktur = Resource.local().loadwait("ui/fraktur").layer(Resource.Font.class).font;
+    public static final Font fraktur = Utils.getprefb("fontfraktur",false)?Resource.local().loadwait("ui/fraktur").layer(Resource.Font.class).font:serif.deriveFont(Font.BOLD);
     public static final Font dfont = sans;
     public static final Foundry std;
     public static final Foundry mini;

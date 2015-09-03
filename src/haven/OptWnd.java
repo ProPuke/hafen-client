@@ -254,7 +254,17 @@ public class OptWnd extends Window {
 			Utils.setprefi("fontsize", val);
 		}
 	    }, new Coord(0, y));
-	y += 30;
+	y += 20;
+
+	general.add(new CheckBox("Enable Fraktur font *") {
+		{a = Utils.getprefb("fontfraktur",false);}
+
+		public void set(boolean val) {
+		    a = val;
+		    Utils.setprefb("fontfraktur",val);
+		}
+	    }, new Coord(0, y));
+	y += 20;
 
 	y += 10;
 	general.add(new Label("* Restart to apply changes", Text.mini), new Coord(0, y));

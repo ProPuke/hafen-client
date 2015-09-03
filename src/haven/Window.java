@@ -46,7 +46,7 @@ public class Window extends Widget implements DTarget {
     public static final Tex bl = Resource.loadtex("gfx/hud/wnd/lg/bl");
     public static final Tex bm = Resource.loadtex("gfx/hud/wnd/lg/bm");
     public static final Tex br = Resource.loadtex("gfx/hud/wnd/lg/br");
-    public static final Coord tlm = new Coord(18, 30), brm = new Coord(13, 22), cpo = new Coord(36, (47-Math.round(Text.fontsize*1.5f))/2);
+    public static final Coord tlm = new Coord(18, 30), brm = new Coord(13, 22), cpo = new Coord(36, 28);
     public static final int capo = 7, capio = 2;
     public static final Coord dlmrgn = new Coord(23, 14), dsmrgn = new Coord(9, 9);
     public static final BufferedImage ctex = Resource.loadimg("gfx/hud/fonttex");
@@ -126,7 +126,7 @@ public class Window extends Widget implements DTarget {
 	for(int x = 0; x < cmw; x += cm.sz().x)
 	    g.image(cm, mdo.add(x, 0), Coord.z, cbr);
 	g.image(cr, tlo.add(cl.sz().x + cmw, 0));
-	g.image(cap.tex(), tlo.add(cpo));
+	g.image(cap.tex(), tlo.add(cpo).sub(0,cap.tex().sz().y*3/5));
 	mdo = tlo.add(cl.sz().x + cmw + cr.sz().x, 0);
 	cbr = tlo.add(wsz.add(-tr.sz().x, tm.sz().y));
 	for(; mdo.x < cbr.x; mdo.x += tm.sz().x)
