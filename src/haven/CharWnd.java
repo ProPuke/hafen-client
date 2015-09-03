@@ -1198,12 +1198,16 @@ public class CharWnd extends Window {
 		Frame.around(exps, Collections.singletonList(this.exps));
 	    }
 	    lists.pack();
-	    int bw = (lists.sz.x + 5) / 3;
+
+	    int gap = 5;
+	    int width = lists.sz.x + gap;
 	    x = lists.c.x;
 	    y = lists.c.y + lists.sz.y + 5;
-	    skills.add(lists.new TabButton(bw - 5, "Available", nsk), new Coord(x, y));
-	    skills.add(lists.new TabButton(bw - 5, "Current", csk), new Coord(x + bw, y));
-	    skills.add(lists.new TabButton(bw - 5, "Lore", exps), new Coord(x + bw * 2, y));
+	    skills.add(lists.new TabButton(width*8/21 - gap, "Available", nsk), new Coord(x, y));
+	    x += width*8/21;
+	    skills.add(lists.new TabButton(width*8/21 - gap, "Current", csk), new Coord(x, y));
+	    x += width*8/21;
+	    skills.add(lists.new TabButton(width*5/21 - gap, "Lore", exps), new Coord(x, y));
 	}
 
 	Tabs.Tab wounds;
